@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart | SS Restaurant</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="./assets/SNS Restaurant logo.png" alt="SS Restaurant" width="40" class="me-2">
+          SS Restaurant
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a href="./index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="./about.html" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="./menu.html" class="nav-link">Menu</a></li>
+            <li class="nav-item"><a href="./events.html" class="nav-link">Events</a></li>
+            <li class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="./cart.html" class="nav-link active">Cart 🛒 (<span id="cart-count">0</span>)</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Cart Section -->
+  <section id="cart" class="container py-5 mt-5">
+    <h2 class="text-center mb-4">🛍️ Your Cart</h2>
+    <div id="cart-items" class="mb-4"></div>
+    <h4 class="text-end mt-3">Total: ₹<span id="total-price">0</span></h4>
+    <div class="text-center mt-3">
+      <button id="clear-cart" class="btn btn-danger px-4">Clear Cart</button>
+    </div>
+  </section>
+
+  <!--  New Code  -->
+
+  <div id="cart-items"></div>
+
+<!-- COUPON SECTION -->
+<div class="coupon-box mt-4 p-3 border rounded">
+  <h5>Apply Coupon</h5>
+  <div class="d-flex gap-2">
+    <input id="coupon-input" type="text" class="form-control" placeholder="Enter coupon (e.g. SAVE10)">
+    <button id="apply-coupon" class="btn btn-primary">Apply</button>
+  </div>
+  <p id="coupon-msg" class="text-success mt-2"></p>
+</div>
+
+<!-- TOTAL SECTION -->
+<div class="cart-summary mt-4 p-3 border rounded">
+  <p class="d-flex justify-content-between">
+    <span>Subtotal:</span>
+    <strong>₹<span id="total-price">0</span></strong>
+  </p>
+
+  <p class="d-flex justify-content-between">
+    <span>GST (5%):</span>
+    <strong>₹<span id="gst-amount">0</span></strong>
+  </p>
+
+  <p class="d-flex justify-content-between text-primary">
+    <span>Discount:</span>
+    <strong>- ₹<span id="discount">0</span></strong>
+  </p>
+
+  <h4 class="d-flex justify-content-between mt-3">
+    <span>Grand Total:</span>
+    <strong>₹<span id="grand-total">0</span></strong>
+  </h4>
+
+  <button id="clear-cart" class="btn btn-danger w-100 mt-3">Clear Cart</button>
+</div>
+
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 SS Restaurant | Follow us on 
+      <a href="#" class="text-info">Instagram</a> & 
+      <a href="#" class="text-info">Facebook</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

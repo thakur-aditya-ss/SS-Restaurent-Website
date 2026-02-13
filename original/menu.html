@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Menu | SS Restaurant</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="./index.html">
+          <img src="logo.png" alt="SS Restaurant" width="40" class="me-2">
+          SS Restaurant
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a href="./index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="./menu.html" class="nav-link active">Menu</a></li>
+            <li class="nav-item"><a href="./index.html#gallery" class="nav-link">Gallery</a></li>
+            <li class="nav-item"><a href="./events.html" class="nav-link">Events</a></li>
+            <li class="nav-item"><a href="./index.html#contact" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="./index.html#cart" class="nav-link">Cart 🛒 (<span id="cart-count">0</span>)</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Menu Section -->
+  <section id="menu" class="container py-5 mt-5">
+    <h2 class="text-center mb-4 fw-bold">🍽 Our Delicious Menu</h2>
+
+    <!-- Starters -->
+    <h3 class="mt-5 mb-3 text-danger fw-bold">Starters</h3>
+    <div class="row g-4">
+      <div class="col-md-3 text-center">
+        <img src="./assets/paneer-tikka.jpg" class="menu-img" alt="Paneer Tikka">
+        <h5>Paneer Tikka</h5><p>₹200</p>
+        <button class="btn btn-outline-primary add-to-cart" data-name="Paneer Tikka" data-price="200">Add to Cart</button>
+      </div>
+      <div class="col-md-3 text-center">
+        <img src="./assets/veg-spring-rolls.jpg" class="menu-img" alt="Veg Spring Rolls">
+        <h5>Veg Spring Rolls</h5><p>₹180</p>
+        <button class="btn btn-outline-primary add-to-cart" data-name="Veg Spring Rolls" data-price="180">Add to Cart</button>
+      </div>
+      <div class="col-md-3 text-center">
+        <img src="./assets/chilli-paneer.jpg" class="menu-img" alt="Chilli Paneer">
+        <h5>Chilli Paneer</h5><p>₹220</p>
+        <button class="btn btn-outline-primary add-to-cart" data-name="Chilli Paneer" data-price="220">Add to Cart</button>
+      </div>
+      <div class="col-md-3 text-center">
+        <img src="./assets/veg-manchurian.jpg" class="menu-img" alt="Veg Manchurian">
+        <h5>Veg Manchurian</h5><p>₹190</p>
+        <button class="btn btn-outline-primary add-to-cart" data-name="Veg Manchurian" data-price="190">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Main Course -->
+    <h3 class="mt-5 mb-3 text-danger fw-bold">Main Course</h3>
+    <div class="row g-4">
+      <div class="col-md-3 text-center">
+        <img src="./assets/butter-chicken.jpg" class="menu-img" alt="Butter Chicken">
+        <h5>Butter Chicken</h5><p>₹350</p>
+        <button class="btn btn-outline-primary add-to-cart" data-name="Butter Chicken" data-price="350">Add to Cart</button>
+      </div>
+      <div class="col-md-3 text-center">
+        <img src="./assets/dal-makhani.jpg" class="menu-img" alt="Dal Makhani">
+        <h5>Dal Makhani</h5><p>₹250</p>
+        <button class="btn btn-outline-primary add-to-cart" data-name="Dal Makhani" data-price="250">Add to Cart</button>
+      </div>
+      <div class="col-md-3 text-center">
+        <img src="./assets/shahi-paneer.jpg" class="menu-img" alt="Shahi Paneer">
+        <h5>Shahi Paneer</h5><p>₹280</p>
+        <button class="btn btn-outline-primary add-to-cart" data-name="Shahi Paneer" data-price="280">Add to Cart</button>
+      </div>
+      <div class="col-md-3 text-center">
+        <img src="./assets/naan.jpg" class="menu-img" alt="Butter Naan">
+        <h5>Butter Naan</h5><p>₹50</p>
+        <button class="btn btn-outline-primary add-to-cart" data-name="Butter Naan" data-price="50">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Desserts -->
+    <h3 class="mt-5 mb-3 text-danger fw-bold">Desserts</h3>
+    <div class="row g-4">
+      <div class="col-md-3 text-center">
+        <img src="./assets/gulaab-jamun.jpg" class="menu-img" alt="Gulab Jamun">
+        <h5>Gulab Jamun</h5><p>₹100</p>
+        <button class="btn btn-outline-primary add-to-cart" data-name="Gulab Jamun" data-price="100">Add to Cart</button>
+      </div>
+      <div class="col-md-3 text-center">
+        <img src="./assets/icecream.jpg" class="menu-img" alt="Ice Cream">
+        <h5>Ice Cream (2 Scoops)</h5><p>₹120</p>
+        <button class="btn btn-outline-primary add-to-cart" data-name="Ice Cream" data-price="120">Add to Cart</button>
+      </div>
+      <div class="col-md-3 text-center">
+        <img src="./assets/rasmalai.jpg" class="menu-img" alt="Rasmalai">
+        <h5>Rasmalai</h5><p>₹150</p>
+        <button class="btn btn-outline-primary add-to-cart" data-name="Rasmalai" data-price="150">Add to Cart</button>
+      </div>
+      <div class="col-md-3 text-center">
+        <img src="./assets/brownie.jpg" class="menu-img" alt="Chocolate Brownie">
+        <h5>Chocolate Brownie</h5><p>₹180</p>
+        <button class="btn btn-outline-primary add-to-cart" data-name="Chocolate Brownie" data-price="180">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Beverages -->
+    <h3 class="mt-5 mb-3 text-danger fw-bold">Beverages</h3>
+    <div class="row g-4">
+      <div class="col-md-3 text-center">
+        <img src="./assets/mango-shake.jpg" class="menu-img" alt="Mango Shake">
+        <h5>Mango Shake</h5><p>₹150</p>
+        <button class="btn btn-outline-primary add-to-cart" data-name="Mango Shake" data-price="150">Add to Cart</button>
+      </div>
+      <div class="col-md-3 text-center">
+        <img src="./assets/cold-coffee.jpg" class="menu-img" alt="Cold Coffee">
+        <h5>Cold Coffee</h5><p>₹130</p>
+        <button class="btn btn-outline-primary add-to-cart" data-name="Cold Coffee" data-price="130">Add to Cart</button>
+      </div>
+      <div class="col-md-3 text-center">
+        <img src="./assets/lemon-soda.jpg" class="menu-img" alt="Lemon Soda">
+        <h5>Lemon Soda</h5><p>₹90</p>
+        <button class="btn btn-outline-primary add-to-cart" data-name="Lemon Soda" data-price="90">Add to Cart</button>
+      </div>
+      <div class="col-md-3 text-center">
+        <img src="./assets/tea.jpg" class="menu-img" alt="Masala Tea">
+        <h5>Masala Tea</h5><p>₹60</p>
+        <button class="btn btn-outline-primary add-to-cart" data-name="Masala Tea" data-price="60">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    <p>&copy; 2025 SS Restaurant | Follow us on 
+      <a href="#" class="text-info">Instagram</a> & 
+      <a href="#" class="text-info">Facebook</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

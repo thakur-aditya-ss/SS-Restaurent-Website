@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SS Restaurant</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="logo.png" alt="SS Restaurant" width="40" class="me-2">
+          SS Restaurant
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a href="./index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#menu" class="nav-link">Menu</a></li>
+            <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a></li>
+            <li class="nav-item"><a href="./events.html" class="nav-link">Events</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="#cart" class="nav-link">Cart 🛒 (<span id="cart-count">0</span>)</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  
+  <!-- Events & Offers Section -->
+<section id="events" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5 fw-bold">🎉 Events & Special Offers</h2>
+
+    <div class="row g-4">
+      <!-- Event 1: Live Music Night -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card shadow-sm h-100">
+          <img src="./assets/live-music.jpg" class="card-img-top" alt="Live Music Night">
+          <div class="card-body text-center">
+            <h5 class="card-title">Live Music Night</h5>
+            <p class="card-text">Enjoy soulful tunes by local artists every Friday at 8 PM. Perfect for a relaxing dinner!</p>
+            <a href="#book-table" class="btn btn-primary">Book a Table</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event 2: Weekend Buffet -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card shadow-sm h-100">
+          <img src="./assets/buffet.jpg" class="card-img-top" alt="Weekend Buffet">
+          <div class="card-body text-center">
+            <h5 class="card-title">Weekend Buffet</h5>
+            <p class="card-text">All-you-can-eat buffet featuring our signature dishes — every Saturday & Sunday!</p>
+            <a href="#book-table" class="btn btn-primary">Reserve Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Offer 1: Happy Hour -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card shadow-sm h-100">
+          <img src="./assets/happy_hour.jpg" class="card-img-top" alt="Happy Hour">
+          <div class="card-body text-center">
+            <h5 class="card-title">Happy Hour</h5>
+            <p class="card-text">Buy 1 Get 1 Free on cocktails and mocktails from 5 PM – 7 PM daily!</p>
+            <a href="#menu" class="btn btn-success">View Menu</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Offer 2: Festive Discounts -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card shadow-sm h-100">
+          <img src="./assets/festival_discount.jpg" class="card-img-top" alt="Festive Discounts">
+          <div class="card-body text-center">
+            <h5 class="card-title">Festive Discounts</h5>
+            <p class="card-text">Enjoy up to 20% off on all dine-in and takeaway orders this festive season!</p>
+            <a href="#book-table" class="btn btn-warning text-dark">Grab Offer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Cart -->
+  <section id="cart" class="container py-5">
+    <h2 class="text-center mb-4">Your Cart</h2>
+    <div id="cart-items"></div>
+    <h4 class="text-end mt-3">Total: ₹<span id="total-price">0</span></h4>
+    <button id="clear-cart" class="btn btn-danger mt-3">Clear Cart</button>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="container py-5">
+    <h2 class="text-center mb-4">Contact Us</h2>
+    <p class="text-center">📍 123 SS Street, Delhi | 📞 +91 9876543210 | ✉️ ssrestaurant@gmail.com</p>
+    <div class="map text-center">
+      <iframe src="https://maps.google.com/maps?q=Delhi&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="300"></iframe>
+    </div>
+  </section>
+
+  <!-- Location -->
+  <section class="location-bar text-center text-white py-3">
+    <p>📍 Visit us: 123 SS Street, Delhi | Open 10 AM - 11 PM</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 SS Restaurant | Follow us on 
+      <a href="#" class="text-info">Instagram</a> & 
+      <a href="#" class="text-info">Facebook</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
