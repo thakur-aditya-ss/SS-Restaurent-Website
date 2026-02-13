@@ -1,9 +1,8 @@
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-let appliedCoupon = null;
+// ===========================
+// CART SYSTEM USING LOCAL STORAGE
+// ===========================
 
-function saveCart() {
-  localStorage.setItem("cart", JSON.stringify(cart));
-}
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function updateCartCount() {
   const count = cart.reduce((t, i) => t + i.quantity, 0);
@@ -11,8 +10,32 @@ function updateCartCount() {
 }
 updateCartCount();
 
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
 
+// ===========================
+// ADD TO CART
+// ===========================
+document.querySelectorAll(".add-to-cart").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const name = btn.dataset.name;
+    const price = Number(btn.dataset.price);
+
+    const existing = cart.find(i => i.name === name);
+
+    if (existing) existing.quantity++;
+    else cart.push({ name, price, quantity: 1 });
+
+    saveCart();
+    updateCartCount();
+    displayCartItems();
+  });
+});
+
+// ===========================
 // DISPLAY CART
+// ===========================
 function displayCartItems() {
   const div = document.getElementById("cart-items");
   if (!div) return;
@@ -20,7 +43,9 @@ function displayCartItems() {
 
   if (cart.length === 0) {
     div.innerHTML = `<p class='text-center text-muted'>Your Cart is Empty</p>`;
-    resetTotals();
+    document.getElementById("total-price").textContent = 0;
+    document.getElementById("gst-amount").textContent = 0;
+    document.getElementById("grand-total").textContent = 0;
     return;
   }
 
@@ -42,28 +67,34 @@ function displayCartItems() {
         <button class="qty-btn plus" data-i="${index}">+</button>
       </div>
 
-      <strong>₹${item.price * item.quantity}</strong>
-
-      <button class="remove-btn" data-i="${index}">❌</button>
+      <div><strong>₹${item.price * item.quantity}</strong></div>
     `;
 
     div.appendChild(row);
     total += item.price * item.quantity;
   });
 
-  calculateTotals(total);
+  const gst = (total * 0.05).toFixed(2);
+  const grand = (total + Number(gst)).toFixed(2);
+
+  document.getElementById("total-price").textContent = total;
+  document.getElementById("gst-amount").textContent = gst;
+  document.getElementById("grand-total").textContent = grand;
+
   addQtyEvents();
 }
-displayCartItems();
 
-
-// QUANTITY + REMOVE
+// ===========================
+// QTY BUTTON LOGIC
+// ===========================
 function addQtyEvents() {
   document.querySelectorAll(".plus").forEach(btn => {
     btn.onclick = () => {
       const i = btn.dataset.i;
       cart[i].quantity++;
-      saveCart(); updateCartCount(); displayCartItems();
+      saveCart();
+      updateCartCount();
+      displayCartItems();
     };
   });
 
@@ -73,79 +104,26 @@ function addQtyEvents() {
       if (cart[i].quantity > 1) cart[i].quantity--;
       else cart.splice(i, 1);
 
-      saveCart(); updateCartCount(); displayCartItems();
-    };
-  });
-
-  document.querySelectorAll(".remove-btn").forEach(btn => {
-    btn.onclick = () => {
-      const i = btn.dataset.i;
-      cart.splice(i, 1);
-      saveCart(); updateCartCount(); displayCartItems();
+      saveCart();
+      updateCartCount();
+      displayCartItems();
     };
   });
 }
 
+displayCartItems();
 
-// COUPON SYSTEM
-const coupons = {
-  "SAVE10": { type: "percent", value: 10 },
-  "WELCOME50": { type: "flat", value: 50 },
-};
-
-document.getElementById("apply-coupon").onclick = () => {
-  const code = document.getElementById("coupon-input").value.trim().toUpperCase();
-  const msg = document.getElementById("coupon-msg");
-
-  if (coupons[code]) {
-    appliedCoupon = coupons[code];
-    msg.textContent = "Coupon Applied Successfully! 🎉";
-    msg.className = "text-success";
-    displayCartItems();
-  } else {
-    appliedCoupon = null;
-    msg.textContent = "Invalid Coupon ❌";
-    msg.className = "text-danger";
-  }
-};
-
-
-// TOTAL CALCULATION
-function calculateTotals(total) {
-  const gst = (total * 0.05).toFixed(2);
-  let discount = 0;
-
-  if (appliedCoupon) {
-    if (appliedCoupon.type === "percent")
-      discount = ((total * appliedCoupon.value) / 100).toFixed(2);
-
-    else if (appliedCoupon.type === "flat")
-      discount = appliedCoupon.value;
-  }
-
-  const grand = (total + Number(gst) - Number(discount)).toFixed(2);
-
-  document.getElementById("total-price").textContent = total;
-  document.getElementById("gst-amount").textContent = gst;
-  document.getElementById("discount").textContent = discount;
-  document.getElementById("grand-total").textContent = grand;
-}
-
-function resetTotals() {
-  document.getElementById("total-price").textContent = 0;
-  document.getElementById("gst-amount").textContent = 0;
-  document.getElementById("discount").textContent = 0;
-  document.getElementById("grand-total").textContent = 0;
-}
-
-
+// ===========================
 // CLEAR CART
-document.getElementById("clear-cart").onclick = () => {
-  if (confirm("Clear Entire Cart?")) {
-    cart = [];
-    appliedCoupon = null;
-    saveCart();
-    updateCartCount();
-    displayCartItems();
-  }
-};
+// ===========================
+const clearBtn = document.getElementById("clear-cart");
+if (clearBtn) {
+  clearBtn.onclick = () => {
+    if (confirm("Clear Entire Cart?")) {
+      cart = [];
+      localStorage.removeItem("cart");
+      updateCartCount();
+      displayCartItems();
+    }
+  };
+}

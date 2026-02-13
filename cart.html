@@ -45,44 +45,28 @@
   </section>
 
   <!--  New Code  -->
+<div id="cart-items"></div>
 
-  <div id="cart-items"></div>
-
-<!-- COUPON SECTION -->
-<div class="coupon-box mt-4 p-3 border rounded">
-  <h5>Apply Coupon</h5>
-  <div class="d-flex gap-2">
-    <input id="coupon-input" type="text" class="form-control" placeholder="Enter coupon (e.g. SAVE10)">
-    <button id="apply-coupon" class="btn btn-primary">Apply</button>
-  </div>
-  <p id="coupon-msg" class="text-success mt-2"></p>
-</div>
-
-<!-- TOTAL SECTION -->
 <div class="cart-summary mt-4 p-3 border rounded">
-  <p class="d-flex justify-content-between">
-    <span>Subtotal:</span>
-    <strong>₹<span id="total-price">0</span></strong>
-  </p>
+    <p class="d-flex justify-content-between">
+        <span>Subtotal:</span>
+        <strong>₹<span id="total-price">0</span></strong>
+    </p>
 
-  <p class="d-flex justify-content-between">
-    <span>GST (5%):</span>
-    <strong>₹<span id="gst-amount">0</span></strong>
-  </p>
+    <p class="d-flex justify-content-between">
+        <span>GST (5%):</span>
+        <strong>₹<span id="gst-amount">0</span></strong>
+    </p>
 
-  <p class="d-flex justify-content-between text-primary">
-    <span>Discount:</span>
-    <strong>- ₹<span id="discount">0</span></strong>
-  </p>
+    <h4 class="d-flex justify-content-between mt-3">
+        <span>Grand Total:</span>
+        <strong>₹<span id="grand-total">0</span></strong>
+    </h4>
 
-  <h4 class="d-flex justify-content-between mt-3">
-    <span>Grand Total:</span>
-    <strong>₹<span id="grand-total">0</span></strong>
-  </h4>
-
-  <button id="clear-cart" class="btn btn-danger w-100 mt-3">Clear Cart</button>
+    <button id="clear-cart" class="btn btn-danger w-100 mt-3">Clear Cart</button>
 </div>
 
+  
 
   <!-- Footer -->
   <footer class="bg-dark text-white text-center py-3">
