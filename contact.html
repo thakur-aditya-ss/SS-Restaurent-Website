@@ -39,34 +39,38 @@
   <section class="inquiry-section py-5 mt-5">
     <div class="container">
       <h2 class="text-center mb-4 text-dark fw-bold">📞 Inquiry / Feedback</h2>
-      <form id="inquiryForm" class="p-4 border rounded shadow-lg bg-light">
+      <form id="inquiryForm" action="https://formsubmit.co/aaasingh1010@gmail.com" method="POST" class="p-4 border rounded shadow-lg bg-light">
+        <!-- Hidden input for post-submission redirect (optional, or rely on default) -->
+        <input type="hidden" name="_next" value="https://ss-restaurant.com/contact.html">
+        <input type="hidden" name="_subject" value="New Inquiry from SS Restaurant Website">
+        <input type="hidden" name="_captcha" value="false">
+
         <div class="row mb-3">
           <div class="col-md-6">
-            <input type="text" id="inq-name" class="form-control" placeholder="Your Name" required />
+            <input type="text" name="name" id="inq-name" class="form-control" placeholder="Your Name" required />
           </div>
           <div class="col-md-6">
-            <input type="email" id="inq-email" class="form-control" placeholder="Your Email" required />
+            <input type="email" name="email" id="inq-email" class="form-control" placeholder="Your Email" required />
           </div>
         </div>
         <div class="row mb-3">
           <div class="col-md-6">
-            <input type="tel" id="inq-phone" class="form-control" placeholder="Phone Number" required />
+            <input type="tel" name="phone" id="inq-phone" class="form-control" placeholder="Phone Number" required />
           </div>
           <div class="col-md-6">
-            <select id="inq-purpose" class="form-select" required>
+            <select name="purpose" id="inq-purpose" class="form-select" required>
               <option value="">Select Purpose</option>
-              <option>Food Inquiry</option>
-              <option>Reservation Query</option>
-              <option>Event Booking</option>
-              <option>Feedback</option>
+              <option value="Food Inquiry">Food Inquiry</option>
+              <option value="Reservation Query">Reservation Query</option>
+              <option value="Event Booking">Event Booking</option>
+              <option value="Feedback">Feedback</option>
             </select>
           </div>
         </div>
         <div class="mb-3">
-          <textarea id="inq-feedback" class="form-control" placeholder="Write your feedback or message here..." rows="4" required></textarea>
+          <textarea name="message" id="inq-feedback" class="form-control" placeholder="Write your feedback or message here..." rows="4" required></textarea>
         </div>
         <button type="submit" class="btn btn-success w-100">Submit Inquiry</button>
-        <p id="inq-message" class="mt-3 text-center fw-semibold"></p>
       </form>
     </div>
   </section>
@@ -84,8 +88,8 @@
           <div class="address-box p-4 rounded shadow">
             <h3 class="fw-bold text-dark mb-3">Visit SS Restaurant</h3>
             <p><strong>Address:</strong> 123 SS Street, Near City Mall, New Delhi - 110001</p>
-            <p><strong>Phone:</strong> +91 9876543210</p>
-            <p><strong>Email:</strong> ssrestaurant@gmail.com</p>
+            <p><strong>Phone:</strong> +91 7652043880</p>
+            <p><strong>Email:</strong> aaasingh1010@gmail.com</p>
             <p><strong>Opening Hours:</strong> 10:00 AM – 11:00 PM (Mon–Sun)</p>
             <p><strong>Special Note:</strong> Free parking available. Perfect spot for family dinners and celebrations!</p>
           </div>
