@@ -161,6 +161,10 @@ if (finalizeBtn) {
     // Save to local storage to pass to contact page
     localStorage.setItem("pendingBillDetails", billText);
     
+    // Empty the cart immediately after finalizing booking
+    cart = [];
+    localStorage.removeItem("cart");
+    
     // Redirect to contact page
     window.location.href = "contact.html?fromCart=true";
   };
