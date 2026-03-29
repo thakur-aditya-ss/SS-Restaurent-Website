@@ -36,37 +36,35 @@
 
   <!-- Cart Section -->
   <section id="cart" class="container py-5 mt-5">
-    <h2 class="text-center mb-4">🛍️ Your Cart</h2>
+    <h2 class="text-center mb-4 fw-bold text-dark">🛍️ Your Cart</h2>
     <div id="cart-items" class="mb-4"></div>
-    <h4 class="text-end mt-3">Total: ₹<span id="total-price">0</span></h4>
-    <div class="text-center mt-3">
-      <button id="clear-cart" class="btn btn-danger px-4">Clear Cart</button>
+    
+    <div class="cart-summary mt-4 p-4 border rounded shadow-sm bg-light">
+      <h3 class="mb-4 text-center text-dark">🧾 Bill Summary</h3>
+      
+      <p class="d-flex justify-content-between fs-5">
+          <span>Subtotal:</span>
+          <strong>₹<span id="total-price">0</span></strong>
+      </p>
+
+      <p class="d-flex justify-content-between text-muted fs-5">
+          <span>GST (5%):</span>
+          <strong>₹<span id="gst-amount">0</span></strong>
+      </p>
+      
+      <hr>
+
+      <h4 class="d-flex justify-content-between mt-3 fw-bold text-dark">
+          <span>Grand Total:</span>
+          <strong>₹<span id="grand-total">0</span></strong>
+      </h4>
+
+      <div class="d-flex flex-column flex-md-row gap-3 mt-4">
+        <button id="clear-cart" class="btn btn-outline-danger w-100 py-2 fw-bold">Clear Cart</button>
+        <button id="finalize-booking" class="btn btn-success w-100 py-2 fw-bold">Finalize Booking</button>
+      </div>
     </div>
   </section>
-
-  <!--  New Code  -->
-<div id="cart-items"></div>
-
-<div class="cart-summary mt-4 p-3 border rounded">
-    <p class="d-flex justify-content-between">
-        <span>Subtotal:</span>
-        <strong>₹<span id="total-price">0</span></strong>
-    </p>
-
-    <p class="d-flex justify-content-between">
-        <span>GST (5%):</span>
-        <strong>₹<span id="gst-amount">0</span></strong>
-    </p>
-
-    <h4 class="d-flex justify-content-between mt-3">
-        <span>Grand Total:</span>
-        <strong>₹<span id="grand-total">0</span></strong>
-    </h4>
-
-    <button id="clear-cart" class="btn btn-danger w-100 mt-3">Clear Cart</button>
-</div>
-
-  
 
   <!-- Footer -->
   <footer class="bg-dark text-white text-center py-3">

@@ -127,3 +127,83 @@ if (clearBtn) {
     }
   };
 }
+
+// ===========================
+// FINALIZE BOOKING
+// ===========================
+const finalizeBtn = document.getElementById("finalize-booking");
+if (finalizeBtn) {
+  finalizeBtn.onclick = () => {
+    if (cart.length === 0) {
+        alert("Your cart is empty! Please add some items first.");
+        return;
+    }
+    
+    let billText = "🛍️ === CART SUMMARY === 🛍️\n\n";
+    let total = 0;
+    
+    cart.forEach((item, index) => {
+        let itemTotal = item.price * item.quantity;
+        billText += `${index + 1}. ${item.name} (x${item.quantity}) - ₹${itemTotal}\n`;
+        total += itemTotal;
+    });
+    
+    let gst = (total * 0.05).toFixed(2);
+    let grand = (total + Number(gst)).toFixed(2);
+    
+    billText += "\n-------------------------\n";
+    billText += `Subtotal: ₹${total.toFixed(2)}\n`;
+    billText += `GST (5%): ₹${gst}\n`;
+    billText += `Grand Total: ₹${grand}\n`;
+    billText += "=========================\n\n";
+    billText += "Additional Requests / Customization Details: ";
+    
+    // Save to local storage to pass to contact page
+    localStorage.setItem("pendingBillDetails", billText);
+    
+    // Redirect to contact page
+    window.location.href = "contact.html?fromCart=true";
+  };
+}
+
+// ===========================
+// AUTO-FILL INQUIRY FORM
+// ===========================
+document.addEventListener("DOMContentLoaded", () => {
+  // Check if we're on the contact page or any page with the form
+  const feedbackField = document.getElementById("inq-feedback");
+  const purposeField = document.getElementById("inq-purpose");
+  const inquiryForm = document.getElementById("inquiryForm");
+
+  if (feedbackField) {
+      const pendingBill = localStorage.getItem("pendingBillDetails");
+      
+      // Auto-fill from localStorage if available
+      if (pendingBill) {
+          feedbackField.value = pendingBill;
+          
+          if (purposeField) {
+              purposeField.value = "Food Inquiry"; // Auto-select purpose
+          }
+          
+          feedbackField.rows = 15; // Make the text area larger to fit the bill
+          
+          // Focus the field so the user sees it visually populated
+          feedbackField.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
+      // Automatically clean up local storage on successful form submission
+      if (inquiryForm) {
+          inquiryForm.addEventListener("submit", () => {
+              if (localStorage.getItem("pendingBillDetails")) {
+                  // After sending the inquiry, clear the pending bill 
+                  localStorage.removeItem("pendingBillDetails");
+                  // Clear the cart optionally
+                  cart = [];
+                  localStorage.removeItem("cart");
+                  updateCartCount();
+              }
+          });
+      }
+  }
+});
